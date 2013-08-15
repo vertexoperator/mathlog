@@ -29,68 +29,65 @@
 * とはいえ、数値計算の話は、原理的には同等のアルゴリズムで計算量のオーダーが等しくても、定数倍の速度差があるとか、数値安定性が違う(例えば、QR分解では、Gram-Schmidt直交化よりHouseholder変換がいい)など評価の軸が色々あり、更には、実装の差によって、数百倍の速度差が出る場合もある(例えば、行列の積は、そのまま実装したものは遅すぎて通常使い物にならない)けど、そういったdetailは省略する(前者は、数値解析とか、そういう分野で扱うべき。後者は、数学の問題ですらない)
 
 * 偏微分方程式数値解法や機械学習に於いては、大規模疎行列の計算も重要になる(例えば、Gauss-Seidel法など)。これらは、数学としては、それほど面白くないようであるけど、実用上は重要なので、簡単に説明する
-\
-\
+
+* pandocの拡張マークダウン記法が便利っぽいので、テストというのもある
+
 
 
 ## 行列環の理論(1) ##
-\
-\
+[**TODO:行列環の定義**]  
 
 
 
 
 ## 行列環の理論(2) 行列式と逆行列 ##
-正方行列$A$に対して、$AX=XA=I$を満たす$X$を$A$の逆行列と呼ぶ。正方行列$A$に対して、$X$と$Y$がそれぞれ$A$の逆行列であるとする(つまり、$AX=XA=AY=YA=I$)と、$X = (YA)X = Y(AX) = Y$なので、逆行列は一意に定まる。これを$A^{-1}$と書く。また逆行列を持つ時、正則行列と呼ぶ\
+正方行列$A$に対して、$AX=XA=I$を満たす$X$を$A$の逆行列と呼ぶ。正方行列$A$に対して、$X$と$Y$がそれぞれ$A$の逆行列であるとする(つまり、$AX=XA=AY=YA=I$)と、$X = (YA)X = Y(AX) = Y$なので、逆行列は一意に定まる。これを$A^{-1}$と書く。また逆行列を持つ時、正則行列と呼ぶ
 
 
 整数環で、一般に逆元が存在するとは限らないのと同様、行列環でも、逆行列が一般に存在するとは限らない。例えば  
-$\left( \begin{matrix} 1 & 0 \\ 0 & 0  \end{matrix} \right)$\
+$\left( \begin{matrix} 1 & 0 \\ 0 & 0  \end{matrix} \right)$  
 には逆行列が存在しないことを直接証明できる。一般に、2行2列の行列について  
 $\left( \begin{matrix} a & b \\ c & d \end{matrix} \right) \left( \begin{matrix} d & -b \\ -c & a \end{matrix} \right) = (ad-bc) \left( \begin{matrix} 1 & 0 \\ 0 & 1  \end{matrix} \right)$\
-が計算できる。従って、$ad-bc \neq 0$の時\
-$\left( \begin{matrix} a & b \\ c & d \end{matrix} \right)$\
-には逆行列\
-$\dfrac{1}{ad-bc} \left( \begin{matrix} d & -b \\ -c & a \end{matrix} \right)$\
+が計算できる。従って、$ad-bc \neq 0$の時  
+$\left( \begin{matrix} a & b \\ c & d \end{matrix} \right)$  
+には逆行列  
+$\dfrac{1}{ad-bc} \left( \begin{matrix} d & -b \\ -c & a \end{matrix} \right)$  
 が存在する(現時点では、$ad -bc = 0$の時、逆行列が存在しないとは言えてない)
 
 
-同様に、3行3列の行列について\
-$\left( \begin{matrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{matrix} \right)$ $\left( \begin{matrix} b_2 c_3-b_3 c_2 & a_3 c_2 - a_2 c_3 & a_2 b_3 - a_3 b_2 \\ b_3 c_1 - b_1 c_3 & a_1 c_3 - a_3 c_1 & a_3 b_1 - a_3 b_1 \\ b_1 c_2 - b_2 c_1 & a_2 c_1 - a_1 c_2 & a_1 b_2 - a_2 b_1 \end{matrix} \right) = d I$\
-$d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b_2 c_1$\
+同様に、3行3列の行列について  
+$\left( \begin{matrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{matrix} \right)$ $\left( \begin{matrix} b_2 c_3-b_3 c_2 & a_3 c_2 - a_2 c_3 & a_2 b_3 - a_3 b_2 \\ b_3 c_1 - b_1 c_3 & a_1 c_3 - a_3 c_1 & a_3 b_1 - a_3 b_1 \\ b_1 c_2 - b_2 c_1 & a_2 c_1 - a_1 c_2 & a_1 b_2 - a_2 b_1 \end{matrix} \right) = d I$  
+$d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b_2 c_1$  
 が計算できる。$d \neq 0$であれば、逆行列が存在する。これらの計算は、一般の$n$行$n$列に一般化できる
 
 
 
-[**定義**]集合$\{1,\cdots,n\}$から$\{1,\cdots,n\}$への全単射の集合を$S_n$と書く
+**定義**:集合$\{1,\cdots,n\}$から$\{1,\cdots,n\}$への全単射の集合を$S_n$と書く
 
-[**定義**]$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して、$det(A) = \displaystyle \sum_{w \in S_n} sgn(w) \displaystyle \prod_{i=1}^{n} a_{i w(i)}$を行列式と呼ぶ
+**定義**:$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して、$det(A) = \displaystyle \sum_{w \in S_n} sgn(w) \displaystyle \prod_{i=1}^{n} a_{i w(i)}$を行列式と呼ぶ
 
 
 **命題**: $det(AB)=det(A)det(B)$  
-[**証明**]  
-
+**証明**:    
 直接計算  
-
-[**以上**]  
+**以上**  
 
 
 以上より、$AX=XA=1$であれば$det(AX)=det(A)det(X)=1$なので、逆行列が存在するならば、$det(A) \neq 0$でないといけない。
 逆に、一般の$n$行$n$列の行列$A$に対して、$det(A) \neq 0$の時に、逆行列が存在することを確認したい。2行2列,3行3列の場合は、直接逆行列を構成したので、これを一般化する\
 
 
-[**命題(Cramerの公式)**]$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して\
+**命題(Cramerの公式)**:$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して\
 $\widetilde{A} = \displaystyle \sum _{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)=j} sgn(w) \displaystyle \prod_{r=1,r \neq i}^{n} a_{r w(r)}) e_{ji}$\
 は$A \widetilde{A} = \widetilde{A} A = det(A) I$を満たす。$\widetilde{A}$を余因子行列と呼ぶ\
-[**証明**]  
-直接計算
-
-[**以上**]
+**証明**:  
+直接計算  
+**以上**
 
 
 
 以上をまとめて、次の結果を得る  
-[**命題**]$n$行$n$列の正方行列$A$について、次の4条件は同値  
+**命題**:$n$行$n$列の正方行列$A$について、次の4条件は同値  
 (1)左逆元$X$が存在する;$XA=I$  
 (2)右逆元$Y$が存在する;$AY=I$  
 (3)$det(A) \neq 0$  
@@ -99,14 +96,13 @@ $\widetilde{A} = \displaystyle \sum _{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)
 (1)=>(3).$det(XA) = det(X) det(A) = 1$より、$det(A) \neq 0$  
 (2)=>(3).$det(AY) = det(A) det(Y) = 1$より、$det(A) \neq 0$  
 (3)=>(4).Cramerの公式による  
-(4)=>(1),(2).明らか
- 
-[**以上**]  
+(4)=>(1),(2).明らか  
+**以上**  
 
 
 
-[**命題**]$n$行$n$列の行列環$M_n(k)$の環自己同型$\phi:M_n(k) \to M_n(k)$は内部的;$\exists p , \forall x,\phi(x)=p^{-1}xp$  
-[証明]  
+**命題**:$n$行$n$列の行列環$M_n(k)$の環自己同型$\phi:M_n(k) \to M_n(k)$は内部的;$\exists p , \forall x,\phi(x)=p^{-1}xp$  
+**証明**:  
 $e_{ij}$を行列単位として、$f_{ij}=\phi(e_{ij})$とする。\
 このとき、$\displaystyle \sum_{k=1}^{n} f_{kk} = \phi(I) = I$なので、各$1 \leq t \leq n$に対して、$f_{tt} = \displaystyle \sum_{i,j} \alpha_{tij} e_{ij}$と置くと、$\displaystyle \sum_{s=1}^n \alpha_{tss} = 1$となる。明らかに$t,s$を、$\alpha_{tss} \neq 0$と選ぶことができる\
 この時\
@@ -117,14 +113,15 @@ $e_{ij} P = \displaystyle \sum_{k=1}^n \delta_{jk} e_{is} f_{tk} = e_{is} f_{tj}
 $P f_{ij} = \displaystyle \sum_{k=1}^n e_{ks} \phi(e_{tk} e_{ij}) = \displaystyle \sum_{k=1}^n \delta_{ik} e_{ks} f_{tj} = e_{is} f_{tj}$\
 なので$e_{ij} P = P f_{ij}$\
 \
-また\
+また  
 $PQ = (\displaystyle \sum_{p=1}^n e_{ps} f_{tp})(\displaystyle \sum_{q=1}^n f_{qt} e_{sq})=\displaystyle \sum_{k=1}^n e_{ks} f_{tt} e_{sk} = \displaystyle \sum_{i,j,k} \alpha_{tij} e_{ks} e_{ij} e_{sk} = \displaystyle \sum_{i,j,k} \delta_{is} \delta_{js} \alpha_{tij} e_{kk} = \alpha_{tss} \displaystyle \sum_{k=1}^n e_{kk} = \alpha_{tss} I$\
-であるけども、$\alpha_{tss} \neq 0$だったので、$P$は可逆。従って、\
-$\phi(x) = P^{-1} x P$\
+であるけども、$\alpha_{tss} \neq 0$だったので、$P$は可逆。従って、  
+$\phi(x) = P^{-1} x P$  
 となる。  
-[**以上**]  
+**以上**  
 
-通常の線形代数の教科書では、$x \mapsto P^{-1} x P$は相似変換という名前で、ややad hocに導入されるけど、行列環の環同型は全て相似変換で与えられる。これは、もう少し一般的な状況で、Skolem-Noetherの定理として知られている\
+
+通常の線形代数の教科書では、$x \mapsto P^{-1} x P$は相似変換という名前で、ややad hocに導入されるけど、行列環の環同型は全て相似変換で与えられる。これは、もう少し一般的な状況で、Skolem-Noetherの定理として知られている
 
 
 
@@ -133,18 +130,17 @@ $\phi(x) = P^{-1} x P$\
 以下、多項式$p(x) = p_n x^n + \cdots + p_0$と行列$A$に対して、$p(A) = p_n A^n + \cdots + p_0 I$とする(多項式$x+1$に対して$A+1$は意味を持たないので、$A+I$などとするということ)\
 
 
-[**命題(Cayley-Hamiltonの定理)**]多項式$p(x)=det(xI-A)$に対して$p(A)=0$が成り立つ  
-[**証明**]  
+**命題(Cayley-Hamiltonの定理)**:多項式$p(x)=det(xI-A)$に対して$p(A)=0$が成り立つ  
+**証明**:  
 
-FIXME
+**FIXME**
 
-[**以上**]  
+**以上**  
 
 
 
-[**命題(Jordan分解)**]  
-$A \in Mat(n,\mathbf{C})$に対して、次のような分解が存在する  
-[**証明**]  
+**命題(Jordan分解)**:$A \in Mat(n,\mathbf{C})$に対して、次のような分解が存在する  
+**証明**:  
 $f(x) = det(xI-A)$が$f(x)=\prod_{i=1}^M (x - \lambda_i)^{a_i}$と因数分解できるとすると\
 $1 = \displaystyle \sum_{i=1}^M q_i(x) \displaystyle \prod_{j:j \neq i} (x-\lambda_j)^{a_j}$\
 を満たす多項式$q_i(x)$が存在する\
@@ -165,7 +161,7 @@ $P_i = \displaystyle \sum_{j=1}^M P_i P_j = P_i^2$\
 また$N_i = (A-\lambda_i)P_i$とすると、$N_i^{a_i} = 0$で、\
 $A = \displaystyle \sum_{i=1}^M \lambda_i P_i + \displaystyle \sum_{i=1}^M N_i$\
 
-[**以上**]  
+**以上**  
 
 
 Jordan分解の証明は、多項式が一次式の積に分解できることを利用しているので、実数係数では一般にはダメで、複素係数で考える必要がある。また、上の定理の証明で、$f(x)$は$f(A)=0$を満たす、自明でない(最高次係数が1の)多項式であれば、何でもよい。Jordan分解で、$\displaystyle \sum_{i=1}^M \lambda_i P_i$の部分を、半単純成分と呼び、$\displaystyle \sum_{i=1}^M N_i$の部分を冪零成分と呼ぶ。冪等元は射影と呼ばれることもある。冪等元という言い方は、代数的色彩があり、射影と言う言い方は、解析的色合いがある\
@@ -183,13 +179,13 @@ Jordan分解の証明は、多項式が一次式の積に分解できること�
 
 
 ## ベクトル空間論 ##
-[**TODO:ベクトル空間の定義**]\
-[**TODO:一次独立・一次従属・基底の定義**]\
+[**TODO:ベクトル空間の定義**]  
+[**TODO:一次独立・一次従属・基底の定義**]  
 
 
 
-[**命題**]ベクトル空間$V$に対して、$v_1 , \cdots , v_n$と$w_1 , \cdots , w_m$が共に基底である時、$n=m$が成り立つ。この時、$n=m$をベクトル空間$V$の次元と呼んで$dim(V)$と書く  
-[**証明**]  
+**命題**:ベクトル空間$V$に対して、$v_1 , \cdots , v_n$と$w_1 , \cdots , w_m$が共に基底である時、$n=m$が成り立つ。この時、$n=m$をベクトル空間$V$の次元と呼んで$dim(V)$と書く  
+**証明**:  
 より一般に、$\{v_1 , \cdots , v_h \}$がベクトル空間$W \subset V$を生成し、$S = \{ u_1 , \cdots , u_k \} \subset W$が一次独立である時、$k \leq h$が成り立つことを$h$に関する帰納法で示す\
 これが言えれば明らかに$n \leq m$かつ$m \leq n$なので$m=n$\
 (1)$h=0$の時、$V=\{ \mathbf{0} \}$なので、$S=\{ \mathbf{0} \}$であるか$S=\phi$であるけども、前者
@@ -199,14 +195,13 @@ Jordan分解の証明は、多項式が一次式の積に分解できること�
 $u_i = \displaystyle \sum_{j=1}^r a_{ij} v_j \quad (i=1,\cdots ,k)$\
 と書ける。$a_{ir} =0 \quad (i=1 , \cdots , k)$の時、$S$は、$\{v_1 , \cdots , v_{r-1} \}$で生成される部分空間に含まれているので、帰納法の仮定より、$k \leq r-1 \leq h$\
 \
-\
 今度は、ある$1 \leq p \leq k$に対して、$a_{pr} \neq 0$であるとする。$p=k$として、一般性を失わない。この>時\
 $w_i = u_i - \dfrac{a_{ir}}{a_{kr}} u_k \quad (i=1,\cdots,k-1)$\
 とすると、$w_i$は$\{ v_1 , \cdots , v_{r-1} \}$の生成する部分空間に含まれている。また\
 $\mathbf{0} = c_1 w_1 + \cdots + c_{k-1} w_{k-1} = c_1 u_1 + \cdots c_{k-1} u_{k-1} - \dfrac{\sum c_i a_{ir}}{a_{kr}}u_{k} \Leftrightarrow c_1 = \cdots c_{k-1} = \sum c_{i}a_{ir} =0$\
 で、$w_{1} , \cdots , w_{k-1}$は一次独立。帰納法の仮定より、$k-1 \leq r-1$なので$k \leq r=h$  
 
-[**以上**]  
+**以上**  
 
 
 一般には、ベクトル空間は、有限個の基底を持つとは限らない。世の中には、無限個の基底で生成されるベクトル空間も存在する。例えば、多項式の集合は、$1,x,x^2,\cdots$を基底とするベクトル空間となっている。
@@ -214,11 +209,10 @@ $\mathbf{0} = c_1 w_1 + \cdots + c_{k-1} w_{k-1} = c_1 u_1 + \cdots c_{k-1} u_{k
 
 
 
-[**命題**]任意の自然数$n$に対して、$n$次元ベクトル空間が存在する  
-[**証明**]  
-$V=\mathbf{K}^n$と置けばいい\
-
-[**以上**]
+**命題**:任意の自然数$n$に対して、$n$次元ベクトル空間が存在する  
+**証明**:  
+$V=\mathbf{K}^n$と置けばいい  
+**以上**  
 
 
 最初から、$\mathbf{K}^n$だけを扱えばよさそうなものであるのに、わざわざ、抽象的なベクトル空間の定義を導入する理由は、例えば、多項式$x,\cdots,x^n$の一次結合も$n$次元ベクトル空間となるけど、この2つのベクトル空間は等しくないし、線形同型ではあるけども、標準的な線形同型写像が一意に決まるわけでもない。こういう、色々な$n$次元ベクトル空間が数学では出てくるので、抽象的な定義を採用している。このへんは、こうしておくと、後々説明を節約できるという程度の話ではある\
@@ -230,8 +224,8 @@ $V=\mathbf{K}^n$と置けばいい\
 
 
 
-[**命題**]$n$次元ベクトル空間$V$に対して、環同型$Mat(n,\mathbf{K}) \simeq End(V)$が成り立つ  
-[**証明**]  
+**命題**:$n$次元ベクトル空間$V$に対して、環同型$Mat(n,\mathbf{K}) \simeq End(V)$が成り立つ  
+**証明**:  
 以下、$V$の基底$v_1,\cdots,v_n$を一つ固定する\
 $\Phi : Mat(n,\mathbf{K}) \to End(V)$を、$v = c_1v_1 + \cdots + c_n v_n$に対して\
 $\Phi(\displaystyle \sum_{i,j} a_{ij} E_{ij}) (v) = \displaystyle \sum_{i,j} p_{ij} c_j v_i$\
