@@ -1,12 +1,17 @@
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
-</script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
-</script>
-<meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" /><script type="text/x-mathjax-config">
-  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
-</script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                   displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });  </script>
 
 
 ## 目標 ##
@@ -47,20 +52,20 @@ $\left( \begin{matrix} a & b \\ c & d \end{matrix} \right) \left( \begin{matrix}
 $\left( \begin{matrix} a & b \\ c & d \end{matrix} \right)$\
 には逆行列\
 $\dfrac{1}{ad-bc} \left( \begin{matrix} d & -b \\ -c & a \end{matrix} \right)$\
-が存在する(現時点では、$ad -bc = 0$の時、逆行列が存在しないとは言えてない)\
+が存在する(現時点では、$ad -bc = 0$の時、逆行列が存在しないとは言えてない)
 
 
 同様に、3行3列の行列について\
 $\left( \begin{matrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{matrix} \right)$ $\left( \begin{matrix} b_2 c_3-b_3 c_2 & a_3 c_2 - a_2 c_3 & a_2 b_3 - a_3 b_2 \\ b_3 c_1 - b_1 c_3 & a_1 c_3 - a_3 c_1 & a_3 b_1 - a_3 b_1 \\ b_1 c_2 - b_2 c_1 & a_2 c_1 - a_1 c_2 & a_1 b_2 - a_2 b_1 \end{matrix} \right) = d I$\
 $d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b_2 c_1$\
-が計算できる。$d \neq 0$であれば、逆行列が存在する。これらの計算は、一般の$n$行$n$列に一般化できる\
+が計算できる。$d \neq 0$であれば、逆行列が存在する。これらの計算は、一般の$n$行$n$列に一般化できる
 
 
-\
-[**定義**]集合$\{1,\cdots,n\}$から$\{1,\cdots,n\}$への全単射の集合を$S_n$と書く\
 
-[**定義**]$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して、
-$det(A) = \displaystyle \sum_{w \in S_n} sgn(w) \displaystyle \prod_{i=1}^{n} a_{i w(i)}$を行列式と呼ぶ\
+[**定義**]集合$\{1,\cdots,n\}$から$\{1,\cdots,n\}$への全単射の集合を$S_n$と書く
+
+[**定義**]$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して、$det(A) = \displaystyle \sum_{w \in S_n} sgn(w) \displaystyle \prod_{i=1}^{n} a_{i w(i)}$を行列式と呼ぶ
+
 
 [**命題**]$det(AB)=det(A)det(B)$\
 [**証明**]\
@@ -186,8 +191,7 @@ Jordan分解の証明は、多項式が一次式の積に分解できること�
 \
 (2)$h=r-1$まで正しいとして、$h=r$の時を示す。$S \subset W$なので\
 $u_i = \displaystyle \sum_{j=1}^r a_{ij} v_j \quad (i=1,\cdots ,k)$\
-と書ける。$a_{ir} =0 \quad (i=1 , \cdots , k)$の時、$S$は、$\{v_1 , \cdots , v_{r-1} \}$で生成さ
-れる部分空間に含まれているので、帰納法の仮定より、$k \leq r-1 \leq h$\
+と書ける。$a_{ir} =0 \quad (i=1 , \cdots , k)$の時、$S$は、$\{v_1 , \cdots , v_{r-1} \}$で生成される部分空間に含まれているので、帰納法の仮定より、$k \leq r-1 \leq h$\
 \
 \
 今度は、ある$1 \leq p \leq k$に対して、$a_{pr} \neq 0$であるとする。$p=k$として、一般性を失わない。この>時\
@@ -199,9 +203,8 @@ $\mathbf{0} = c_1 w_1 + \cdots + c_{k-1} w_{k-1} = c_1 u_1 + \cdots c_{k-1} u_{k
 
 
 一般には、ベクトル空間は、有限個の基底を持つとは限らない。世の中には、無限個の基底で生成されるベクトル空間も存在する。例えば、多項式の集合は、$1,x,x^2,\cdots$を基底とするベクトル空間となっている。
-また、実数の集合$\mathbf{R}$は、有理数体$\mathbf{Q}$上のベクトル空間になっている。(無限個の)基底が存在することは選択公理を使えば証明できるけど、具体的に、どういう実数が基底になってるか計算することはできない。こういうのは、具体的な計算の役には全然立たない病的な例なので、厳密さを気にする数学系の人以外は、深く考える必要はないと思う\
-\
-\
+また、実数の集合$\mathbf{R}$は、有理数体$\mathbf{Q}$上のベクトル空間になっている。(無限個の)基底が存在することは選択公理を使えば証明できるけど、具体的に、どういう実数が基底になってるか計算することはできない。こういうのは、具体的な計算の役には全然立たない病的な例ではある
+
 
 
 [**命題**]任意の自然数$n$に対して、$n$次元ベクトル空間が存在する\
@@ -257,11 +260,14 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$\
 (1)$P$が$n$次元計量ベクトル空間$V$に作用しているとして、$e_1,\cdots e_n$を正規直交基底とする。$v_i = P e_i$と置いて、$v_1 , \cdots v_n$をGram-Schmidtの直交化法によって直交化する\
 (2)も同様\
 [**証明終了**]\
-\
+
+
 上三角行列や直交変換・ユニタリ変換の逆行列は、Cramerの公式に頼らなくても、容易に計算できるので、$P^{-1}=R^{-1} Q^{-1}$によって逆行列が簡単に分かる\
-\
+
+
 [注釈]QR分解は$R$の対角成分を正になるようにすると、一意に定まる。正則でない場合も同様の分解は可能であるけども、一意性はなくなる\
-\
+
+
 [**TODO:QR分解を使って固有値を計算する方法**]\
 \
 \

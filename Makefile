@@ -2,8 +2,8 @@ SRCS = LinearAlgebra.md
 
 .SUFFIXES:	.md .html
 .md.html:
-	pandoc -s --mathjax -o $@ $<
+	pandoc -f markdown -t html --template=./template --mathjax -o $@ $<
 all:	$(SRCS:.md=.html)
 
 clean:
-	rm *.html
+	rm LinearAlgebra.html
