@@ -77,9 +77,9 @@ $d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b
 逆に、一般の$n$行$n$列の行列$A$に対して、$det(A) \neq 0$の時に、逆行列が存在することを確認したい。2行2列,3行3列の場合は、直接逆行列を構成したので、これを一般化する\
 
 
-**命題(Cramerの公式)**:$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して\
+**命題(Cramerの公式)**:$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して  
 $\widetilde{A} = \displaystyle \sum _{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)=j} sgn(w) \displaystyle \prod_{r=1,r \neq i}^{n} a_{r w(r)}) e_{ji}$\
-は$A \widetilde{A} = \widetilde{A} A = det(A) I$を満たす。$\widetilde{A}$を余因子行列と呼ぶ\
+は$A \widetilde{A} = \widetilde{A} A = det(A) I$を満たす。$\widetilde{A}$を余因子行列と呼ぶ  
 **証明**:  
 直接計算  
 **以上**
@@ -141,26 +141,25 @@ $\phi(x) = P^{-1} x P$
 
 **命題(Jordan分解)**:$A \in Mat(n,\mathbf{C})$に対して、次のような分解が存在する  
 **証明**:  
-$f(x) = det(xI-A)$が$f(x)=\prod_{i=1}^M (x - \lambda_i)^{a_i}$と因数分解できるとすると\
-$1 = \displaystyle \sum_{i=1}^M q_i(x) \displaystyle \prod_{j:j \neq i} (x-\lambda_j)^{a_j}$\
-を満たす多項式$q_i(x)$が存在する\
-$p_i(x) = q_i(x) \displaystyle \prod_{j:j\neq i}(x-\lambda_j)^{a_j} \quad (i=1,\cdots,M)$\
-と置くと、\
-$1 = \displaystyle \sum_{i=1}^M p_i(x)$\
-$x = \displaystyle \sum_{i=1}^M \lambda_i p_i(x) + \displaystyle \sum_{i=1}^M (x-\lambda_i)p_i(x)$\
-であり、因数を見ると\
-$((x-\lambda_i)p_i(x))^{a_i} = 0 \mod f(x)$\
-$p_i(x) p_j(x) = 0  \mod f(x) \quad (i \neq j)$\
-はすぐ分かる。従って$P_i=p_i(A)$は\
-$P_i P_j = 0 \quad (i \neq j)$\
-$\displaystyle \sum_{i=1}^n P_i = I$\
-を満たす。後者の式の両辺に$P_i$をかけると\
-$P_i = \displaystyle \sum_{j=1}^M P_i P_j = P_i^2$\
+$f(x) = det(xI-A)$が$f(x)=\prod_{i=1}^M (x - \lambda_i)^{a_i}$と因数分解できるとすると  
+$1 = \displaystyle \sum_{i=1}^M q_i(x) \displaystyle \prod_{j:j \neq i} (x-\lambda_j)^{a_j}$  
+を満たす多項式$q_i(x)$が存在する  
+$p_i(x) = q_i(x) \displaystyle \prod_{j:j\neq i}(x-\lambda_j)^{a_j} \quad (i=1,\cdots,M)$  
+と置くと  
+$1 = \displaystyle \sum_{i=1}^M p_i(x)$  
+$x = \displaystyle \sum_{i=1}^M \lambda_i p_i(x) + \displaystyle \sum_{i=1}^M (x-\lambda_i)p_i(x)$  
+であり、因数を見ると  
+$((x-\lambda_i)p_i(x))^{a_i} = 0 \mod f(x)$  
+$p_i(x) p_j(x) = 0  \mod f(x) \quad (i \neq j)$  
+はすぐ分かる。従って$P_i=p_i(A)$は  
+$P_i P_j = 0 \quad (i \neq j)$  
+$\displaystyle \sum_{i=1}^n P_i = I$  
+を満たす。後者の式の両辺に$P_i$をかけると  
+$P_i = \displaystyle \sum_{j=1}^M P_i P_j = P_i^2$  
 より$P_i$は冪等元  
   
-また$N_i = (A-\lambda_i)P_i$とすると、$N_i^{a_i} = 0$で、\
-$A = \displaystyle \sum_{i=1}^M \lambda_i P_i + \displaystyle \sum_{i=1}^M N_i$\
-
+また$N_i = (A-\lambda_i)P_i$とすると、$N_i^{a_i} = 0$で、  
+$A = \displaystyle \sum_{i=1}^M \lambda_i P_i + \displaystyle \sum_{i=1}^M N_i$  
 **以上**  
 
 
@@ -188,19 +187,17 @@ Jordan分解の証明は、多項式が一次式の積に分解できること�
 **証明**:  
 より一般に、$\{v_1 , \cdots , v_h \}$がベクトル空間$W \subset V$を生成し、$S = \{ u_1 , \cdots , u_k \} \subset W$が一次独立である時、$k \leq h$が成り立つことを$h$に関する帰納法で示す\
 これが言えれば明らかに$n \leq m$かつ$m \leq n$なので$m=n$\
-(1)$h=0$の時、$V=\{ \mathbf{0} \}$なので、$S=\{ \mathbf{0} \}$であるか$S=\phi$であるけども、前者
-は、一次独立でない。従って$k=0 \leq h$\
+(1)$h=0$の時、$V=\{ \mathbf{0} \}$なので、$S=\{ \mathbf{0} \}$であるか$S=\phi$であるけども、前者は、一次独立でない。従って$k=0 \leq h$  
 \
-(2)$h=r-1$まで正しいとして、$h=r$の時を示す。$S \subset W$なので\
-$u_i = \displaystyle \sum_{j=1}^r a_{ij} v_j \quad (i=1,\cdots ,k)$\
-と書ける。$a_{ir} =0 \quad (i=1 , \cdots , k)$の時、$S$は、$\{v_1 , \cdots , v_{r-1} \}$で生成される部分空間に含まれているので、帰納法の仮定より、$k \leq r-1 \leq h$\
+(2)$h=r-1$まで正しいとして、$h=r$の時を示す。$S \subset W$なので  
+$u_i = \displaystyle \sum_{j=1}^r a_{ij} v_j \quad (i=1,\cdots ,k)$  
+と書ける。$a_{ir} =0 \quad (i=1 , \cdots , k)$の時、$S$は、$\{v_1 , \cdots , v_{r-1} \}$で生成される部分空間に含まれているので、帰納法の仮定より、$k \leq r-1 \leq h$  
 \
-今度は、ある$1 \leq p \leq k$に対して、$a_{pr} \neq 0$であるとする。$p=k$として、一般性を失わない。この>時\
-$w_i = u_i - \dfrac{a_{ir}}{a_{kr}} u_k \quad (i=1,\cdots,k-1)$\
-とすると、$w_i$は$\{ v_1 , \cdots , v_{r-1} \}$の生成する部分空間に含まれている。また\
-$\mathbf{0} = c_1 w_1 + \cdots + c_{k-1} w_{k-1} = c_1 u_1 + \cdots c_{k-1} u_{k-1} - \dfrac{\sum c_i a_{ir}}{a_{kr}}u_{k} \Leftrightarrow c_1 = \cdots c_{k-1} = \sum c_{i}a_{ir} =0$\
+今度は、ある$1 \leq p \leq k$に対して、$a_{pr} \neq 0$であるとする。$p=k$として、一般性を失わない。この>時  
+$w_i = u_i - \dfrac{a_{ir}}{a_{kr}} u_k \quad (i=1,\cdots,k-1)$  
+とすると、$w_i$は$\{ v_1 , \cdots , v_{r-1} \}$の生成する部分空間に含まれている。また  
+$\mathbf{0} = c_1 w_1 + \cdots + c_{k-1} w_{k-1} = c_1 u_1 + \cdots c_{k-1} u_{k-1} - \dfrac{\sum c_i a_{ir}}{a_{kr}}u_{k} \Leftrightarrow c_1 = \cdots c_{k-1} = \sum c_{i}a_{ir} =0$  
 で、$w_{1} , \cdots , w_{k-1}$は一次独立。帰納法の仮定より、$k-1 \leq r-1$なので$k \leq r=h$  
-
 **以上**  
 
 
@@ -260,8 +257,7 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$\
 **命題(QR分解)**:  
 (1)$P \in GL(n,\mathbf{R})$に対して、$P=QR$を満たす$Q \in O(n)$と正則上三角行列$R \in GL(n,\mathbf{R})$が存在する  
 (2)$P \in GL(n,\mathbf{C})$に対して、$P=QR$を満たす$Q \in U(n)$と正則上三角行列$R \in GL(n,\mathbf{C}$が存在する  
-[**証明**]
-
+**証明**:  
 (1)$P$が$n$次元計量ベクトル空間$V$に作用しているとして、$e_1,\cdots e_n$を正規直交基底とする。$v_i = P e_i$と置いて、$v_1 , \cdots v_n$をGram-Schmidtの直交化法によって直交化する\
 (2)も同様
 
