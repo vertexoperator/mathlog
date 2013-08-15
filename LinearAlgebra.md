@@ -67,7 +67,7 @@ $d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b
 [**定義**]$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して、$det(A) = \displaystyle \sum_{w \in S_n} sgn(w) \displaystyle \prod_{i=1}^{n} a_{i w(i)}$を行列式と呼ぶ
 
 
-[**命題**] $det(AB)=det(A)det(B)$  
+**命題**: $det(AB)=det(A)det(B)$  
 [**証明**]  
 
 直接計算  
@@ -82,10 +82,11 @@ $d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b
 [**命題(Cramerの公式)**]$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して\
 $\widetilde{A} = \displaystyle \sum _{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)=j} sgn(w) \displaystyle \prod_{r=1,r \neq i}^{n} a_{r w(r)}) e_{ji}$\
 は$A \widetilde{A} = \widetilde{A} A = det(A) I$を満たす。$\widetilde{A}$を余因子行列と呼ぶ\
-[**証明**]\
-直接計算\
-[**以上**]\
-\
+[**証明**]  
+直接計算
+
+[**以上**]
+
 
 
 以上をまとめて、次の結果を得る  
@@ -94,12 +95,13 @@ $\widetilde{A} = \displaystyle \sum _{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)
 (2)右逆元$Y$が存在する;$AY=I$  
 (3)$det(A) \neq 0$  
 (4)逆行列$A^{-1}$が存在する  
-[**証明**]  
+**証明**:  
 (1)=>(3).$det(XA) = det(X) det(A) = 1$より、$det(A) \neq 0$  
 (2)=>(3).$det(AY) = det(A) det(Y) = 1$より、$det(A) \neq 0$  
 (3)=>(4).Cramerの公式による  
-(4)=>(1),(2).明らか  
-[証明終了]  
+(4)=>(1),(2).明らか
+ 
+[**以上**]  
 
 
 
@@ -133,7 +135,9 @@ $\phi(x) = P^{-1} x P$\
 
 [**命題(Cayley-Hamiltonの定理)**]多項式$p(x)=det(xI-A)$に対して$p(A)=0$が成り立つ  
 [**証明**]  
-(* FIXME *)  
+
+FIXME
+
 [**以上**]  
 
 
@@ -160,6 +164,7 @@ $P_i = \displaystyle \sum_{j=1}^M P_i P_j = P_i^2$\
   
 また$N_i = (A-\lambda_i)P_i$とすると、$N_i^{a_i} = 0$で、\
 $A = \displaystyle \sum_{i=1}^M \lambda_i P_i + \displaystyle \sum_{i=1}^M N_i$\
+
 [**以上**]  
 
 
@@ -258,10 +263,11 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$\
 
 
 ## QR分解 ##
-[**命題(QR分解)**]  
-(1)$P \in GL(n,\mathbf{R})$に対して、$P=QR$を満たす$Q \in O(n)$と正則上三角行列$R \in GL(n,\mathbf{R})$が存在する\
-(2)$P \in GL(n,\mathbf{C})$に対して、$P=QR$を満たす$Q \in U(n)$と正則上三角行列$R \in GL(n,\mathbf{C}$が存在する\
-[**証明**]  
+**命題(QR分解)**:  
+(1)$P \in GL(n,\mathbf{R})$に対して、$P=QR$を満たす$Q \in O(n)$と正則上三角行列$R \in GL(n,\mathbf{R})$が存在する  
+(2)$P \in GL(n,\mathbf{C})$に対して、$P=QR$を満たす$Q \in U(n)$と正則上三角行列$R \in GL(n,\mathbf{C}$が存在する  
+[**証明**]
+
 (1)$P$が$n$次元計量ベクトル空間$V$に作用しているとして、$e_1,\cdots e_n$を正規直交基底とする。$v_i = P e_i$と置いて、$v_1 , \cdots v_n$をGram-Schmidtの直交化法によって直交化する\
 (2)も同様
 
