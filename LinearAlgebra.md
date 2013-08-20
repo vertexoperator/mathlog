@@ -250,10 +250,7 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 
 
 
-
-
-QR分解
-----------------------------------
+## QR分解 ##
 **命題(QR分解)**:  
 (1)$P \in GL(n,\mathbf{R})$に対して、$P=QR$を満たす$Q \in O(n)$と正則上三角行列$R \in GL(n,\mathbf{R})$が存在する  
 (2)$P \in GL(n,\mathbf{C})$に対して、$P=QR$を満たす$Q \in U(n)$と正則上三角行列$R \in GL(n,\mathbf{C}$が存在する  
