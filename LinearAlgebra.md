@@ -105,7 +105,7 @@ $P f_{ij} = \displaystyle \sum_{k=1}^n e_{ks} \phi(e_{tk} e_{ij}) = \displaystyl
 $PQ = (\displaystyle \sum_{p=1}^n e_{ps} f_{tp})(\displaystyle \sum_{q=1}^n f_{qt} e_{sq})=\displaystyle \sum_{k=1}^n e_{ks} f_{tt} e_{sk} = \displaystyle \sum_{i,j,k} \alpha_{tij} e_{ks} e_{ij} e_{sk} = \displaystyle \sum_{i,j,k} \delta_{is} \delta_{js} \alpha_{tij} e_{kk} = \alpha_{tss} \displaystyle \sum_{k=1}^n e_{kk} = \alpha_{tss} I$
 であるけども、$\alpha_{tss} \neq 0$だったので、$P$は可逆。従って、  
 $\phi(x) = P^{-1} x P$  
-となる。
+となる。  
 **以上**  
 
 
@@ -250,6 +250,10 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 
 
 
+## 特異値分解 ##
+
+
+
 ## QR分解 ##
 **命題(QR分解)**:  
 (1)$P \in GL(n,\mathbf{R})$に対して、$P=QR$を満たす$Q \in O(n)$と正則上三角行列$R \in GL(n,\mathbf{R})$が存在する  
@@ -273,9 +277,6 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 \
 \
 
-
-
-## 特異値分解 ##
 
 
 
