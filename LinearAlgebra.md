@@ -215,7 +215,6 @@ $V=\mathbf{K}^n$と置けばいい
 
 **命題**:$n$次元ベクトル空間$V$に対して、環同型$Mat(n,\mathbf{K}) \simeq End(V)$が成り立つ  
 **証明**:
-<pre>
 以下、$V$の基底$v_1,\cdots,v_n$を一つ固定する
 $\Phi : Mat(n,\mathbf{K}) \to End(V)$を、$v = c_1v_1 + \cdots + c_n v_n$に対して  
 $\Phi(\displaystyle \sum_{i,j} a_{ij} E_{ij}) (v) = \displaystyle \sum_{i,j} p_{ij} c_j v_i$
@@ -225,8 +224,10 @@ $\Phi(\displaystyle \sum_{i,j} a_{ij} E_{ij}) (v) = \displaystyle \sum_{i,j} p_{
 $f(v_i) = \displaystyle \sum_{j=1}^n b_{ij} v_j$
 となる$b_{ij} \in \mathbf{K}$が存在する。このような$f$に対して、$\Psi:End(V) \to Mat(n,\mathbf{K})$を
 $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
-と定義する。$\Psi$と$\Phi$は逆写像で、共に環準同型を与えていることは、容易に確認できる</pre>
+と定義する。$\Psi$と$\Phi$は逆写像で、共に環準同型を与えていることは、容易に確認できる  
 **以上**  
+
+
 
 
 この環同型は、$V$の基底の取り方に依存していて、標準的な同型が存在するわけではない。但し、上のようにして作った2つの同型$f,g:Mat(n,\mathbf{K}) \to End(V)$の間には、適当な環同型$\phi:Mat(n,\mathbf{K}) \to Mat(n,\mathbf{K})$によって、$f \circ \phi = g$という関係が成立する(prove)  
@@ -248,9 +249,6 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 \
 \
 
-
-
-## 特異値分解 ##
 
 
 
@@ -278,6 +276,8 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 \
 
 
+
+## 特異値分解 ##
 
 
 
