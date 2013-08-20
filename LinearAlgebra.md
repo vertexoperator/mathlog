@@ -64,7 +64,7 @@ $d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b
 
 
 **命題(Cramerの公式)**:$A = \displaystyle \sum_{i,j=1}^n a_{ij} e_{ij}$に対して  
-$\widetilde{A} = \displaystyle \sum _{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)=j} sgn(w) \displaystyle \prod_{r=1,r \neq i}^{n} a_{r w(r)}) e_{ji}$  
+$\widetilde{A} = \displaystyle \sum_{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)=j} sgn(w) \displaystyle \prod_{r=1,r \neq i}^{n} a_{r w(r)}) e_{ji}$  
 は$A \widetilde{A} = \widetilde{A} A = det(A) I$を満たす。$\widetilde{A}$を余因子行列と呼ぶ  
 **証明**:  
 直接計算  
@@ -245,9 +245,6 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 [**TODO:計量ベクトル空間**]  
 [**TODO:正規直交基底**]  
 [**TODO:直交変換とユニタリ変換**]  
-\
-\
-\
 
 
 
