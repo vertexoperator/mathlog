@@ -5,9 +5,34 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title>$title$</title>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                   displayMath: [ ['$$$$','$$$$'], ["\\[","\\]"] ],
+                   processEscapes: true ,
+                   skipTags: ["script","noscript","style","textarea"],
+                   processEnvironments: true
+                 },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });  </script>
+
+
   <style type="text/css">
     p { line-height: 150%; 
+        margin-top: 0em;
         margin-bottom: 2em;
+      }
+    pre {
+        margin:0em 0 0em 0;
+        padding:0em 0 0 0em; 
+        background-color:#cccccc;
       }
   </style>
 </head>
