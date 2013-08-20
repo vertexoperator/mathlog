@@ -89,7 +89,7 @@ $\widetilde{A} = \displaystyle \sum _{i,j}  (\displaystyle \sum_{w \in S_n ,w(i)
 
 **命題**:$n$行$n$列の行列環$M_n(k)$の環自己同型$\phi:M_n(k) \to M_n(k)$は内部的;$\exists p , \forall x,\phi(x)=p^{-1}xp$  
 **証明**:  
-<pre>$e_{ij}$を行列単位として、$f_{ij}=\phi(e_{ij})$とする。
+$e_{ij}$を行列単位として、$f_{ij}=\phi(e_{ij})$とする。
 
 このとき、$\displaystyle \sum_{k=1}^{n} f_{kk} = \phi(I) = I$なので、各$1 \leq t \leq n$に対して、$f_{tt} = \displaystyle \sum_{i,j} \alpha_{tij} e_{ij}$と置くと、$\displaystyle \sum_{s=1}^n \alpha_{tss} = 1$となる。明らかに$t,s$を、$\alpha_{tss} \neq 0$と選ぶことができる
 
@@ -105,19 +105,17 @@ $P f_{ij} = \displaystyle \sum_{k=1}^n e_{ks} \phi(e_{tk} e_{ij}) = \displaystyl
 $PQ = (\displaystyle \sum_{p=1}^n e_{ps} f_{tp})(\displaystyle \sum_{q=1}^n f_{qt} e_{sq})=\displaystyle \sum_{k=1}^n e_{ks} f_{tt} e_{sk} = \displaystyle \sum_{i,j,k} \alpha_{tij} e_{ks} e_{ij} e_{sk} = \displaystyle \sum_{i,j,k} \delta_{is} \delta_{js} \alpha_{tij} e_{kk} = \alpha_{tss} \displaystyle \sum_{k=1}^n e_{kk} = \alpha_{tss} I$
 であるけども、$\alpha_{tss} \neq 0$だったので、$P$は可逆。従って、  
 $\phi(x) = P^{-1} x P$  
-となる。</pre>
+となる。
 **以上**  
 
 
-
-
 通常の線形代数の教科書では、$x \mapsto P^{-1} x P$は相似変換という名前で、ややad hocに導入されるけど、行列環の環同型は全て相似変換で与えられる。これは、もう少し一般的な状況で、Skolem-Noetherの定理として知られている  
+\
+\
 
 
 
-
-
-## 行列環の理論(3) Jordan分解とスペクトル分解 ##
+## 行列環の理論(3)Jordan分解とスペクトル分解 ##
 以下、多項式$p(x) = p_n x^n + \cdots + p_0$と行列$A$に対して、$p(A) = p_n A^n + \cdots + p_0 I$とする(多項式$x+1$に対して$A+1$は意味を持たないので、$A+I$などとするということ)  
 
 
@@ -246,11 +244,16 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 [**TODO:計量ベクトル空間**]  
 [**TODO:正規直交基底**]  
 [**TODO:直交変換とユニタリ変換**]  
+\
+\
+\
 
 
 
 
-## QR分解 ##
+
+QR分解
+----------------------------------
 **命題(QR分解)**:  
 (1)$P \in GL(n,\mathbf{R})$に対して、$P=QR$を満たす$Q \in O(n)$と正則上三角行列$R \in GL(n,\mathbf{R})$が存在する  
 (2)$P \in GL(n,\mathbf{C})$に対して、$P=QR$を満たす$Q \in U(n)$と正則上三角行列$R \in GL(n,\mathbf{C}$が存在する  
