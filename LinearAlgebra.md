@@ -225,13 +225,16 @@ $f(v_i) = \displaystyle \sum_{j=1}^n b_{ij} v_j$
 となる$b_{ij} \in \mathbf{K}$が存在する。このような$f$に対して、$\Psi:End(V) \to Mat(n,\mathbf{K})$を
 $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 と定義する。$\Psi$と$\Phi$は逆写像で、共に環準同型を与えていることは、容易に確認できる</pre>
-**以上**
+**以上**  
 
 
-この環同型は、$V$の基底の取り方に依存していて、標準的な同型が存在するわけではない。但し、上のようにして作った2つの同型$f,g:Mat(n,\mathbf{K}) \to End(V)$の間には、適当な環同型$\phi:Mat(n,\mathbf{K}) \to Mat(n,\mathbf{K})$によって、$f \circ \phi = g$という関係が成立する(prove)。
+この環同型は、$V$の基底の取り方に依存していて、標準的な同型が存在するわけではない。但し、上のようにして作った2つの同型$f,g:Mat(n,\mathbf{K}) \to End(V)$の間には、適当な環同型$\phi:Mat(n,\mathbf{K}) \to Mat(n,\mathbf{K})$によって、$f \circ \phi = g$という関係が成立する(prove)  
+
 
 環同型$Mat(n,\mathbf{K}) \simeq End(V)$の取り方に依存して結果が変わる命題というのは、あまりないので、しばしば$P \in Mat(n,\mathbf{K})$と$v \in V$に対して、適当な環同型$f:Mat(n,\mathbf{K}) \to End(V)$を指定して、$f(P)(v) \in V$と書く代わりに、$Pv \in V$と書いたりする。
-あるいは、$Mat(n,\mathbf{K})$がベクトル空間$V$に作用していると言ったら、暗黙のうちに適当な環同型$f:Mat(n,\mathbf{K}) \to End(V)$を指定していると思う\
+
+
+あるいは、$Mat(n,\mathbf{K})$がベクトル空間$V$に作用していると言ったら、暗黙のうちに適当な環同型$f:Mat(n,\mathbf{K}) \to End(V)$を指定していると思う  
 
 
 
@@ -240,7 +243,7 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 [**TODO:計量ベクトル空間**]  
 [**TODO:正規直交基底**]  
 [**TODO:直交変換とユニタリ変換**]  
-\
+
 
 
 
