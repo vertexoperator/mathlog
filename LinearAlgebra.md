@@ -16,6 +16,8 @@
 
 * 過剰完全基底、擬似逆行列の話を書く  
 
+* ベクトル空間のテンソル積の説明もするべきである気がしてきた
+
 * pandocの拡張マークダウン記法が便利っぽいので、テストというのもある
 
 
@@ -208,23 +210,29 @@ $V=\mathbf{K}^n$と置けばいい
 
 
 
-[**TODO:線形準同型の定義**]  
+**定義**:体$\mathbf{K}$上のベクトル空間$V$から$W$への写像$f$が、任意の$x,y \in V$について$f(x+y)=f(x)+f(y)$かつ、任意の$c \in \mathbf{K}$と$x \in V$について、$f(cx)=c f(x)$となる時、線形準同型写像と呼んで、線形準同型写像の集合を$Hom(V,W)$と書く  
+
+
+線形準同型$f$に対しては、$f(\mathbf{0}_V)=f(0 \cdot x) = 0 \cdot f(x) = \mathbf{0}_W$となる  
+
+
 [**TODO:$End(V)$に環構造が入ることの説明**]  
 
 
 
 **命題**:$n$次元ベクトル空間$V$に対して、環同型$Mat(n,\mathbf{K}) \simeq End(V)$が成り立つ  
 **証明**:
-以下、$V$の基底$v_1,\cdots,v_n$を一つ固定する
+<pre>
+以下、$V$の基底$v_1,\cdots,v_n$を一つ固定する  
 $\Phi : Mat(n,\mathbf{K}) \to End(V)$を、$v = c_1v_1 + \cdots + c_n v_n$に対して  
-$\Phi(\displaystyle \sum_{i,j} a_{ij} E_{ij}) (v) = \displaystyle \sum_{i,j} p_{ij} c_j v_i$
+$\Phi(\displaystyle \sum_{i,j} a_{ij} E_{ij}) (v) = \displaystyle \sum_{i,j} p_{ij} c_j v_i$  
 で定義する  
-
-また、$f \in End(V)$とすると、各$f(v_i)$は$v_i$の一次結合で書けるので
-$f(v_i) = \displaystyle \sum_{j=1}^n b_{ij} v_j$
-となる$b_{ij} \in \mathbf{K}$が存在する。このような$f$に対して、$\Psi:End(V) \to Mat(n,\mathbf{K})$を
-$\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
+また、$f \in End(V)$とすると、各$f(v_i)$は$v_i$の一次結合で書けるので  
+$f(v_i) = \displaystyle \sum_{j=1}^n b_{ij} v_j$  
+となる$b_{ij} \in \mathbf{K}$が存在する。このような$f$に対して、$\Psi:End(V) \to Mat(n,\mathbf{K})$を  
+$\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$  
 と定義する。$\Psi$と$\Phi$は逆写像で、共に環準同型を与えていることは、容易に確認できる  
+</pre>
 **以上**  
 
 
@@ -281,9 +289,27 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 ## 応用(1) 連立一次方程式の解法 ##
 [**TODO: 擬似逆行列の話を書く**]  
 [**TODO: 過剰完全基底の話を書く**]  
-方程式の個数が変数の個数より少ないと、一般には、解が一意に定まるとは限らない。例えば、二次元ベクトル$v_1,v_2,v_3$で、これらのベクトルが、ベクトル空間全体を生成するとすると  
-$x_1 v_1 + x_2 v_2 + x_3 v_3 = 0$  
-は、$v_1,v_2,v_3$は一次従属であるはずで、解は無数にある。ウェーブレット変換なんかでは、自然にこういう状況が現れて、過剰完全基底と呼ばれる。擬似逆行列によって、こういう状況でも、ある意味で自然な解を定めることができる
+$v_1 = (1,0) , v_2 = (-\dfrac{1}{2} , \dfrac{\sqrt{3}}{2}) , v_3 = (-\dfrac{1}{2} , -\dfrac{\sqrt{3}}{2})$とすると、$w=(x,y)$に対して、$w=c_1 v_1 + c_2 v_2 + c_3 v_3$を満たす解$(c_1,c_2,c_3)$は一意には定まらない。一つの考え方として、全ての解空間を決定するということが考えられるけども、応用上は、何らかの基準で、よい解を見つけるのが便利。擬似逆行列を使うと  
+$w = \dfrac{2}{3}x \cdot v_1 + (-\dfrac{1}{3}x + \dfrac{1}{\sqrt{3}}y) v_2 + (-\dfrac{1}{3}x -  \dfrac{1}{\sqrt{3}}y) v_3$  
+という解が見つかる  
+
+
+この解は  
+$w = \dfrac{2}{3} \langle w,v_1 \rangle v_1 + \dfrac{2}{3} \langle w , v_2 \rangle v_2 + \dfrac{2}{3} \langle w , v_3 \rangle v_3$  
+と書ける。ここで出てくる$\dfrac{2}{3}$は  
+$\left( \begin{matrix} 1 \\ 0 \end{matrix} \right) \left( \begin{matrix} 1 && 0 \end{matrix} \right) + \left( \begin{matrix} -\dfrac{1}{2}  \\ \dfrac{\sqrt{3}}{2} \end{matrix} \right) \left( \begin{matrix} -\dfrac{1}{2} && \dfrac{\sqrt{3}}{2} \end{matrix} \right) +  \left( \begin{matrix} -\dfrac{1}{2}  \\ -\dfrac{\sqrt{3}}{2} \end{matrix} \right) \left( \begin{matrix} -\dfrac{1}{2} && -\dfrac{\sqrt{3}}{2} \end{matrix} \right) = \dfrac{3}{2} \left( \begin{matrix} 1 && 0 \\ 0 && 1 \end{matrix} \right)$  
+から来ている。このラッキーな記述はいつでもできるわけではない。例えば  
+$v_1 = (1 , 0) , v_2= (1 , 1) , v_3 = (0 , 1)$  
+に対しては  
+$A = v_1^T v_1 + v_2^T v_2 + v_3^T v_3 = \left( \begin{matrix} 2 && 1 \\ 1 && 2 \end{matrix} \right)$  
+が単位行列の定数倍になってないので、この場合は$w=(x,y)$に対して  
+$w = \langle w , v_1 \rangle (A^{-1} v_1) + \langle w , v_2 \rangle (A^{-1} v_2) + \langle w , v_3 \rangle (A^{-1} v_3)$  
+が成立するとしか言えない($w=c_1 v_1 + c_2 v_2 + c_3 v_3$の解は直接は分からない)。一次独立でない生成系を考えるという状況は、ウェーブレット変換や量子力学のコヒーレント状態などに自然に現れる(歴史的に見ると、発見されたのは、コヒーレント状態、擬似逆行列、ウェーブレット変換の順)。これらは、無限次元のベクトル空間を張るけども、上の$A$に相当するものは、単位行列(無限行無限列の行列であるけども)になっていることが多い(おそらく、背景にある何らかの対称性のために)  
+
+
+
+
+
 
 
 
