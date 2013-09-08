@@ -44,7 +44,7 @@ $\dfrac{1}{ad-bc} \left( \begin{matrix} d & -b \\ -c & a \end{matrix} \right)$
 
 
 同様に、3行3列の行列について  
-$\left( \begin{matrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{matrix} \right)$ $\left( \begin{matrix} b_2 c_3-b_3 c_2 & a_3 c_2 - a_2 c_3 & a_2 b_3 - a_3 b_2 \\ b_3 c_1 - b_1 c_3 & a_1 c_3 - a_3 c_1 & a_3 b_1 - a_3 b_1 \\ b_1 c_2 - b_2 c_1 & a_2 c_1 - a_1 c_2 & a_1 b_2 - a_2 b_1 \end{matrix} \right) = d I$  
+$\left( \begin{matrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{matrix} \right) \left( \begin{matrix} b_2 c_3-b_3 c_2 & a_3 c_2 - a_2 c_3 & a_2 b_3 - a_3 b_2 \\ b_3 c_1 - b_1 c_3 & a_1 c_3 - a_3 c_1 & a_3 b_1 - a_3 b_1 \\ b_1 c_2 - b_2 c_1 & a_2 c_1 - a_1 c_2 & a_1 b_2 - a_2 b_1 \end{matrix} \right) = d I$  
 $d = a_1 b_2 c_3 + a_2 b_3 c_1 + a_3 b_1 c_2 - a_1 b_3 c_2 - a_2 b_1 c_3 - a_3 b_2 c_1$  
 が計算できる。$d \neq 0$であれば、逆行列が存在する。これらの計算は、一般の$n$行$n$列に一般化できる
 
@@ -251,7 +251,17 @@ $\Psi(f) = \displaystyle \sum_{i,j} b_{ij} E_{ij}$
 [**TODO:KernelとImage,行列の階数**]  
 [**TODO:固有値と固有ベクトル**]  
 [**TODO:計量ベクトル空間**]  
-[**TODO:正規直交基底**]  
+
+**定義**:$n$次元の計量ベクトル空間$V$の基底$e_1,\cdots,e_n$が、$\langle e_i , e_j \rangle = \delta_{ij}$を満たす時、正規直交基底と呼ぶ  
+  
+**命題**:有限次元の計量ベクトル空間$V$には、正規直交基底が存在する  
+**証明**:
+<pre>
+Gram-Schmidtの直交化による
+</pre>
+**以上**  
+
+  
 [**TODO:直交変換とユニタリ変換**]  
 
 
